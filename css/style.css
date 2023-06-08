@@ -1,0 +1,307 @@
+/* Common--------------------------------------------------------------------------------------------------- */
+
+html,
+body {
+    font-family: 'Open Sans' , sans-serif;
+    height: 100%;
+    margin: 0;
+    background-color: #424242;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 50px;
+}
+
+.container {
+    max-width: 1770px;
+    padding: 0 50px;
+    box-sizing: content-box;
+    margin: 0 auto;
+}
+
+/* Checkbox--------------------------------------------------------------------------------------------------- */
+
+.checkbox {
+    box-sizing: border-box;
+    width: 176px;
+    height: 309px;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 30px 0px 30px 30px;
+}
+
+.checkbox__items {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #333333;
+}
+
+.checkbox__items label:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.checkbox__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 25px;
+}
+
+#check,
+#check1,
+#check2,
+#check3,
+#check4,
+#check5 {
+    display: none;
+}
+
+#check + span,
+#check1 + span,
+#check2 + span,
+#check3 + span,
+#check4 + span,
+#check5 + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #eaa904;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#check + span:before,
+#check1 + span:before,
+#check2 + span:before,
+#check3 + span:before,
+#check4 + span:before,
+#check5 + span:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    background-image: url('./../img/done.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#check:checked + span:before,
+#check1:checked + span:before,
+#check2:checked + span:before,
+#check3:checked + span:before,
+#check4:checked + span:before,
+#check5:checked + span:before {
+    opacity: 1;
+}
+
+
+/* Map */
+
+[class*='ground-pane'] {
+    filter: grayscale(1);
+}
+
+/* Scroll--------------------------------------------------------------------------------------------------- */
+
+/**
+* Reinstate scrolling for non-JS clients
+*/
+.simplebar-content-wrapper {
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar,
+.simplebar-hide-scrollbar::-webkit-scrollbar {
+    display: initial;
+    width: initial;
+    height: initial;
+}
+
+.customScroll {
+    width: 400px;
+    height: 310px;
+    padding: 20px 30px 0px 30px;
+    background-color: white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23.8px;
+    color: #333333;
+}
+
+.simplebar-scrollbar {
+    width: 6px;
+    height: 70px;
+    border-radius: 5px;
+    background: #CCB26E;
+}
+
+/* Mask and Valid */
+
+.container--form {
+    padding: 40px 30px;
+    width: 440px;
+    height: 410px;
+    background: #000;
+    border-radius: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 31px;
+    position: relative;
+}
+
+.name,
+.tel,
+.mail {
+    width: 380px;
+    height: 60px;
+    border: 1px solid #FF5C00;
+    border-radius: 10px;
+    background-color: #FFF;
+    padding: 0px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.form__button {
+    width: 192px;
+    height: 60px;
+    background: #FF5C00;
+    border-radius: 10px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFF;
+
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.form__button:hover {
+    background: #8c3604;
+    transform: translateY(5px);
+}
+
+.just-validate-error-label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FF5C00;
+    position: absolute;
+    top: -25px;
+    left: 20px;
+}
+
+.label__form {
+    padding: 0;
+}
+/* Choice--------------------------------------------------------------------------------------------------- */
+
+.choices[data-type*=select-one] .choices__inner {
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+}
+
+.is-open .choices__list--dropdown, .is-open .choices__list[aria-expanded] {
+    border-radius: 10px;
+}
+
+.is-flipped.is-open.choices__inner {
+    border-radius: 10px;   
+    z-index: 2;
+}
+
+.choices__list--dropdown .choices__item,.choices__list[aria-expanded] .choices__item {
+border-radius: 10px;
+}
+
+.is-open .choices__list--dropdown,.is-open .choices__list[aria-expanded] {
+    border-color: #CCB26E;
+}
+
+.is-focused .choices__inner,.is-open .choices__inner {
+    border-radius: 10px;
+    border-color: #CCB26E;
+}
+
+.choices__list--dropdown,.choices__list[aria-expanded] {
+    width: 206px; 
+    padding-top: 10px;
+    transform: translateY(-10px);
+}
+
+.choices[data-type*=select-one] .choices__input {
+    display: none;
+}
+
+.choices__list--dropdown .choices__item--selectable::after,.choices__list[aria-expanded] .choices__item--selectable::after {
+    display:none;
+}
+
+.choices[data-type*=select-one]::after{
+    position: relative;
+    z-index: 2;
+    top: 18px;
+}
+
+.choices.is-open::after {
+    transform: rotate(90deg);
+}
+
+/* Tooltip--------------------------------------------------------------------------------------------------- */
+
+.tooltip {
+    box-sizing: border-box;
+    width: 375px;
+    background: white;
+    padding: 14px 60px 14px 19px;
+}
+
+.tooltip__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 170%;
+    color: #333333;
+}
+.tooltip__tip {
+    fill: #BCBCBC;
+    transition: fill .3s ease-in-out;
+    cursor: pointer;
+}
+
+.tooltip__tip:hover {
+    fill: #CCB26E;
+}
